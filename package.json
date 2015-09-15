@@ -1,0 +1,27 @@
+{
+  "name": "et-studio.github.io",
+  "version": "1.0.0",
+  "description": "Site of et-studio.",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm standard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/et-studio/et-studio.github.io.git"
+  },
+  "author": "suyu34",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/et-studio/et-studio.github.io/issues"
+  },
+  "homepage": "https://github.com/et-studio/et-studio.github.io#readme",
+  "devDependencies": {
+    "et-template": "^0.1.0",
+    "gulp": "^3.9.0",
+    "gulp-esformatter": "^4.0.0",
+    "through2": "^2.0.0",
+    "todomvc-app-css": "^2.0.1",
+    "todomvc-common": "^1.0.2"
+  }
+}
