@@ -1,5 +1,5 @@
 
-(function(global){
+;(function(global){
   var module = {}
   var exports = {}
   function require (key) {
@@ -20,24 +20,24 @@ var _extend = _dep.extend
 
 var _tp_createElement = _dep.tp_createElement
 var _tp_createText = _dep.tp_createText
-var _tp_bind = _dep.tp_bind
 var _tp_createLine = _dep.tp_createLine
 var _tp_createFragment = _dep.tp_createFragment
 var _tp_setRoot = _dep.tp_setRoot
 var _tp_append = _dep.tp_append
 var _tp_after = _dep.tp_after
-var _tp_getTemplate = _dep.tp_getTemplate
-var _tp_remove = _dep.tp_remove
-var _tp_text = _dep.tp_text
-var _tp_setAttribute = _dep.tp_setAttribute
 var _tp_getProperty = _dep.tp_getProperty
 var _tp_setProperty = _dep.tp_setProperty
+var _tp_getTemplate = _dep.tp_getTemplate
+var _tp_remove = _dep.tp_remove
+var _tp_before = _dep.tp_before
+var _tp_text = _dep.tp_text
+var _tp_setAttribute = _dep.tp_setAttribute
 
 function Template_0 (options) {
     this.init(options)
   }
 
-  function Template_24 (options) {
+  function Template_23 (options) {
     this.init(options)
   }
 
@@ -70,12 +70,6 @@ _tp_createText(_elements, 8, 'todos')
   "autofocus": ""
 })
 
-  _tp_bind(this, 10, 'change keyup', function (e) {
-
-      _scope.trigger('et-model', 'description', e.target.value, e)
-
-  })
-
 
 _tp_createLine(_elements, 11)
 _tp_createFragment(_elements, 12)
@@ -105,8 +99,8 @@ _tp_createText(_elements, 20, 'Mark all as complete')
 })
 
 
-_tp_createLine(_elements, 23)
-_tp_createFragment(_elements, 24)
+_tp_createFragment(_elements, 23)
+_tp_createLine(_elements, 24)
 
 
   _tp_createElement(_elements, 40, 'FOOTER', {
@@ -125,7 +119,7 @@ _tp_createFragment(_elements, 24)
 _tp_createText(_elements, 46, '')
 
 
-_tp_createText(_elements, 48, 'item left')
+_tp_createText(_elements, 48, ' item left')
 
 
   _tp_createElement(_elements, 50, 'UL', {
@@ -295,7 +289,7 @@ _tp_createText(_elements, 96, 'et-template')
   _tp_append(_elements, 14, 22)
 
 
-  _tp_append(_elements, 22, 23)
+  _tp_append(_elements, 22, 24)
 
 
   _tp_append(_elements, 12, 40)
@@ -350,6 +344,19 @@ _tp_createText(_elements, 96, 'et-template')
 
     }
     
+  
+      var _tmp = (function () {
+      if (it.isAllCompelted) {
+            return 'checked'
+          }
+      return ''
+    })()
+      if (_tp_getProperty(_elements, 16, 'checked') !== _tmp) {
+        _tp_setProperty(_elements, 16, 'checked', _tmp)
+      }
+
+
+
 var _lastLength = _last[0] || 0
 var _list = it.items || []
 
@@ -359,19 +366,19 @@ for (; _index < _len; _index++) {
   var i = _index
   var item = _list[_index]
 
-  var _template = _tp_getTemplate(_elements, '24_' + _index, Template_24, this.options)
+  var _template = _tp_getTemplate(_elements, '23_' + _index, Template_23, this.options)
   if (_index >= _lastLength) {
-    _tp_append(_elements, 24, '24_' + _index)
+    _tp_append(_elements, 23, '23_' + _index)
   }
   _template.update(it, item)
 }
 for (; _index < _lastLength; _index++) {
-  _tp_remove(_elements, '24_' + _index)
+  _tp_remove(_elements, '23_' + _index)
 }
-_tp_after(_elements, 23, 24)
+_tp_before(_elements, 24, 23)
 
 
-var _tmp = it.todosLength
+var _tmp = it.activeLength
 if (_last[1] !== _tmp) {
   _last[1] = _tmp
   _tp_text(_elements, 46, _tmp)
@@ -442,7 +449,7 @@ _tp_remove(_elements, 40)
 
     })
 
-    _extend(Template_24.prototype, _prototype, {
+    _extend(Template_23.prototype, _prototype, {
       create: function create () {
         var _elements = this.elements
 
@@ -459,8 +466,7 @@ _tp_remove(_elements, 40)
 
   _tp_createElement(_elements, 30, 'INPUT', {
   "class": "toggle",
-  "type": "checkbox",
-  "checked": ""
+  "type": "checkbox"
 })
 
 
@@ -509,18 +515,18 @@ _tp_createText(_elements, 34, '')
           
   
       var _tmp = (function () {
-      if (it.isCompelted) {
+      if (item.isCompelted) {
             return 'completed'
           }
       return ''
     })() + ' ' + (function () {
-      if (it.isEditing) {
+      if (item.isEditing) {
             return 'editing'
           }
       return ''
     })()
-      if (_last[3] !== _tmp) {
-        _last[3] = _tmp
+      if (_last[5] !== _tmp) {
+        _last[5] = _tmp
         _tp_setAttribute(_elements, 26, 'class', _tmp)
       }
 
@@ -531,6 +537,25 @@ _tp_createText(_elements, 34, '')
       if (_last[0] !== _tmp) {
         _last[0] = _tmp
         _tp_setAttribute(_elements, 30, 'data-id', _tmp)
+      }
+
+      var _tmp = (function () {
+      if (item.isCompelted) {
+            return 'checked'
+          }
+      return ''
+    })()
+      if (_tp_getProperty(_elements, 30, 'checked') !== _tmp) {
+        _tp_setProperty(_elements, 30, 'checked', _tmp)
+      }
+
+
+
+  
+      var _tmp = item.id
+      if (_last[2] !== _tmp) {
+        _last[2] = _tmp
+        _tp_setAttribute(_elements, 32, 'data-id', _tmp)
       }
 
 
@@ -544,8 +569,17 @@ if (_last[1] !== _tmp) {
 
   
       var _tmp = item.id
-      if (_last[2] !== _tmp) {
-        _last[2] = _tmp
+      if (_last[3] !== _tmp) {
+        _last[3] = _tmp
+        _tp_setAttribute(_elements, 36, 'data-id', _tmp)
+      }
+
+
+
+  
+      var _tmp = item.id
+      if (_last[4] !== _tmp) {
+        _last[4] = _tmp
         _tp_setAttribute(_elements, 38, 'data-id', _tmp)
       }
 
