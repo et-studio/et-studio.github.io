@@ -46,6 +46,10 @@
       }
     },
     create: function (description) {
+      if (!description) return // 排除 null 和 undefined
+      description = description.trim()
+      if (!description) return // 排除空白值
+
       var todo = {
         id: ++currentId,
         description: description,
