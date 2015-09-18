@@ -94,6 +94,14 @@
       })
     },
 
+    clearCompleted: function () {
+      var items = datas.filter(function (item) {
+        return !item.isCompelted
+      })
+      datas = items
+      saveToStore()
+    },
+
     setAll: function (key, value) {
       datas.map(function (item) {
         item[key] = value

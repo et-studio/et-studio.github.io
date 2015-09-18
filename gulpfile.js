@@ -9,16 +9,16 @@ var et = require('./gulp-et')
 gulp.task('et', function () {
   return gulp.src('src/*.html')
     .pipe(et())
-    .pipe(gulp.dest('src'))
+    .pipe(gulp.dest('tmp'))
 })
 
 gulp.task('js', ['et'], function () {
   return gulp.src([
     'bower_components/jquery/dist/jquery.js',
     'node_modules/et-template/es5/dependency.js',
+    'tmp/template.js',
     'src/api.js',
     'src/router.js',
-    'src/template.js',
     'src/view.js',
     'src/app.js'
   ])

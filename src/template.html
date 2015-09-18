@@ -40,7 +40,7 @@
       </li>
     </ul>
     <!-- Hidden if no completed items are left ↓ -->
-    [#if it.todosLength > 0]
+    [#if (it.allLength - it.activeLength) > 0]
     <button class="clear-completed">Clear completed</button>
     [/#if]
   </footer>

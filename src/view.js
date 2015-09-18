@@ -37,6 +37,9 @@
         var id = +e.currentTarget.getAttribute('data-id')
         api.toggle(id)
       })
+      $content.on('click', '.clear-completed', function () {
+        api.clearCompleted()
+      })
       $content.on('keyup', '.new-todo', function (e) {
         if (e.keyCode === 13) {
           var description = e.currentTarget.value
