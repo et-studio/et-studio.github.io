@@ -9,6 +9,7 @@ var et = require('./gulp-et')
 gulp.task('et', function () {
   return gulp.src('src/*.html')
     .pipe(et())
+    .pipe(uglify())
     .pipe(gulp.dest('tmp'))
 })
 

@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/et-studio/et-studio.github.io#readme",
   "devDependencies": {
-    "et-template": "^0.1.1",
+    "et-template": "^0.1.5",
     "gulp": "^3.9.0",
     "gulp-concat": "^2.6.0",
     "gulp-cssmin": "^0.1.7",
