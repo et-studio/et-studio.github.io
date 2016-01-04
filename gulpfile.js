@@ -4,18 +4,20 @@ var gulp = require('gulp')
 var concat = require('gulp-concat')
 var uglify = require('gulp-uglify')
 var cssmin = require('gulp-cssmin')
+var rename = require('gulp-rename')
 var et = require('./gulp-et')
 
 gulp.task('et', function () {
   return gulp.src('src/*.html')
     .pipe(et())
+    .pipe(gulp.dest('tmp'))
     .pipe(uglify())
+    .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest('tmp'))
 })
 
 gulp.task('js', ['et'], function () {
   return gulp.src([
-    'bower_components/jquery/dist/jquery.js',
     'node_modules/et-template/es5/dependency.js',
     'tmp/template.js',
     'src/api.js',
@@ -24,7 +26,6 @@ gulp.task('js', ['et'], function () {
     'src/app.js'
   ])
     .pipe(concat('app.js'))
-    .pipe(uglify())
     .pipe(gulp.dest('dist'))
 })
 

@@ -4,7 +4,12 @@
   "description": "Site of et-studio.",
   "main": "index.js",
   "scripts": {
-    "test": "npm standard"
+    "test": "standard"
+  },
+  "standard": {
+    "ignore": [
+      "dist"
+    ]
   },
   "repository": {
     "type": "git",
@@ -17,10 +22,12 @@
   },
   "homepage": "https://github.com/et-studio/et-studio.github.io#readme",
   "devDependencies": {
-    "et-template": "^0.1.5",
+    "esformatter": "^0.8.1",
+    "et-template": "^0.3.6",
     "gulp": "^3.9.0",
     "gulp-concat": "^2.6.0",
     "gulp-cssmin": "^0.1.7",
+    "gulp-rename": "^1.2.2",
     "gulp-uglify": "^1.4.1",
     "through2": "^2.0.0",
     "todomvc-app-css": "^2.0.1",
