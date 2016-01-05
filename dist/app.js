@@ -644,7 +644,7 @@
 
       var _tmp = (function() {
         if (it.isAllCompelted) {
-          return 'checked'
+          return 'checked';
         }
         return ''
       })();
@@ -706,7 +706,7 @@
 
       var _tmp = (function() {
         if (it.routeIndex === 0) {
-          return 'selected'
+          return 'selected';
         }
         return ''
       })();
@@ -720,7 +720,7 @@
 
       var _tmp = (function() {
         if (it.routeIndex === 1) {
-          return 'selected'
+          return 'selected';
         }
         return ''
       })();
@@ -734,7 +734,7 @@
 
       var _tmp = (function() {
         if (it.routeIndex === 2) {
-          return 'selected'
+          return 'selected';
         }
         return ''
       })();
@@ -876,12 +876,12 @@
 
       var _tmp = (function() {
           if (item.isCompelted) {
-            return 'completed'
+            return 'completed';
           }
           return ''
         })() + ' ' + (function() {
           if (item.isEditing) {
-            return 'editing'
+            return 'editing';
           }
           return ''
         })();
@@ -901,7 +901,7 @@
 
       var _tmp = (function() {
         if (item.isCompelted) {
-          return 'checked'
+          return 'checked';
         }
         return ''
       })();
